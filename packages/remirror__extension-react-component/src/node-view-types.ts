@@ -60,6 +60,16 @@ export interface ReactComponentOptions {
    * Override the return value from the `stopEvent` method in `ReactNodeView`
    */
   stopEvent?: Dynamic<(props: { event: Event }) => boolean> | null;
+
+  /**
+   * Allow disabling of the placeholder.
+   *
+   * @defaultValue false
+   *
+   * @staticOption
+   */
+  disablePlaceholder?: Static<false>;
+
 }
 
 export interface NodeViewComponentProps extends EditorViewProps, NodeWithAttributesProps {

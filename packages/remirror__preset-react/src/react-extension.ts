@@ -44,14 +44,20 @@ export class ReactExtension extends PlainExtension<ReactExtensionOptions> {
       defaultEnvironment,
       defaultInlineNode,
       nodeViewComponents,
+      disablePlaceholder,
     } = this.options;
 
-    return [
-      new PlaceholderExtension({
-        emptyNodeClass,
-        placeholder,
-        priority: ExtensionPriority.Low,
-      }),
+    let extensions = []
+    if (!disablePlaceholder) {
+      extensions.push(
+        new PlaceholderExtension({
+          emptyNodeClass,
+          placeholder,
+          priority: ExtensionPriority.Low,
+        }),
+      )
+    }
+    extensions.push(
       new ReactComponentExtension({
         defaultBlockNode,
         defaultContentNode,
@@ -59,6 +65,7 @@ export class ReactExtension extends PlainExtension<ReactExtensionOptions> {
         defaultInlineNode,
         nodeViewComponents,
       }),
-    ];
+    )
+    return extensions
   }
 }

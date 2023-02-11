@@ -74,6 +74,7 @@ import { ReactNodeView } from './react-node-view';
     defaultEnvironment: 'both',
     nodeViewComponents: {},
     stopEvent: null,
+    disablePlaceholder: false,
   },
   staticKeys: ['defaultBlockNode', 'defaultInlineNode', 'defaultContentNode', 'defaultEnvironment'],
 })
